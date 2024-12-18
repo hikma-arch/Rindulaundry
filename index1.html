@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Chartea Shop</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet" />
+    <link href="style.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+</head>
+<header class="header">
+    <div class="logo-container">
+        <div class="logo">
+            <img src="chartealogo.jpg" alt="Chartea Logo" />
+        </div>
+    </div>
+    <nav class="navbar">
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#product-section">Product</a></li>
+            <li><a href="#about-section">About</a></li>
+            <li><a href="#contact-section">Contact</a></li>
+        </ul>
+    </nav>
+    </div>
+</header>
+<body>
+    <section id="home" class="slide home">
+        <div class="container">
+            <h1>
+                Good <span>Tea</span> Will Always <br />
+                Make You Smile
+            </h1>
+            <p>We provide a variety of unique and delicious teas.</p>
+            <a href="bg2.jpg" class="btn">Shop Now</a>
+        </div>
+    </section>
+    
+    
+
+    <section id="product-section" class="slide product">
+        <h2>Menu Kami</h2><br><br>
+        
+        <div class="product-gallery">
+            <div class="product">
+                <img src="1.jpg" alt="Espresso">
+                <p>- Espresso -<br>IDR 15K</p>
+            </div>
+            <div class="product">
+                <img src="image/m2.jpg" alt="Roti bakar">
+                <p>- Roti bakar -<br> 20K</p>
+            </div>
+            <div class="product">
+                <img src="image/m3.jpg" alt="Caramel Latte">
+                <p>- Caramel latte -<br> 18K</p>
+            </div>
+            <div class="product">
+                <img src="image/m5.jpg" alt="Iced Taro">
+                <p>- Iced taro -<br>IDR 15K</p>
+            </div>
+            <div class="product1">
+                <img src="image/m7.jpg" alt="Americano">
+                <p>- Choco nuttela -<br>IDR 12K</p>
+            </div>
+            <div class="product1">
+                <img src="image/m9 - Copy (2).jpg" alt="Americano">
+                <p>- Kebab Sapi -<br>IDR 20K</p>
+            </div>
+            <div class="product1">
+                <img src="image/md.jpg" alt="Americano">
+                <p>- Frappucino -<br>IDR 20K</p>
+            </div>
+            <div class="product1">
+                <img src="image/me46.jpg" alt="Americano">
+                <p>- Milk tea boba -<br>IDR 20K</p>
+            </div>
+        </div>
+    </section>
+    
+    
+    <section id="about-section" class="slide about">
+        <h2>Tentang Kami</h2>
+        <p>Selamat datang di Chartea! Kami adalah tempat di mana kenikmatan teh bertemu dengan kebahagiaan. Di sini, kami menyediakan berbagai pilihan minuman teh yang unik dan menyegarkan, siap menemani setiap momen spesial Anda.</p>
+        <p>Chartea bukan hanya sekadar tempat minum teh, tetapi juga tempat berkumpul dan berbagi cerita. Kami hadir untuk memberikan pengalaman minum teh yang menyenangkan dan berbeda dari yang lain. Dengan suasana yang nyaman dan pelayanan yang ramah, kami ingin menjadi bagian dari hari-hari ceria Anda.</p>
+        <p>Temui kami di outlet kami atau temukan lokasi kami di peta di bawah ini. Jangan ragu untuk datang, karena <span class="highlight">Chartea selalu siap memberikan senyuman!</span></p>
+    </section>
+    
+
+    <section id="contact-section" class="slide contact">
+    <h2>Contact Us</h2>
+
+    <div class="contact-info">
+        <p>🕒 Open Hours: 12:00 - 23:00</p>
+        <p>📞 WhatsApp: 0821915788730</p>
+        <p>📸 Instagram: chartea_selayar</p>
+        <p>📍 Outlet: Benteng, Selayar, Jl. KH Hayyung No. 99</p>
+    </div>
+
+    <div id="map-container">
+        <div id="map"></div>
+    </div>
+</section>
+
+
+    <footer>
+        <p>&copy; 2024 Chartea Shop. All rights reserved.</p>
+    </footer>
+
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+    <script>
+        // Inisialisasi peta dengan tampilan awal
+        var map = L.map('map').setView([-6.115016, 120.45917], 15);
+
+        // Menggunakan peta dasar tanpa label jalan
+        L.tileLayer('https://{s}.basemaps.cartocdn.com/light_nolabels/{z}/{x}/{y}{r}.png', {
+            maxZoom: 19,
+            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/">CARTO</a>'
+        }).addTo(map);
+
+
+        const geojsonFiles = [
+            'geojson/sekolah.geojson',
+            'geojson/chartea.geojson',
+            'geojson/mesjid2.geojson',
+            'geojson/BENTENG.geojson',
+            'geojson/JALAN2.geojson',
+            'geojson/JALANN.geojson',
+        ];
+
+        Promise.all(geojsonFiles.map(file => fetch(file).then(response => response.json())))
+            .then(dataArray => {
+                dataArray.forEach(data => {
+                    L.geoJSON(data, {
+                        pointToLayer: function (feature, latlng) {
+                            const marker = L.marker(latlng).addTo(map);
+
+    
+                            const name = feature.properties['NAMA SEKOLAH'] || 
+                                    feature.properties['NAMA USAHA'] || 
+                                        feature.properties['NAMA MESJID'] || 
+                                        "Unknown Location";
+
+                            // Tooltip dengan nama lokasi
+                            marker.bindTooltip(name, {
+                                permanent: true,
+                                direction: 'top', 
+                                offset: [0, -10],
+                                className: 'custom-tooltip'
+                            }).openTooltip();
+                        }
+                    }).addTo(map);
+                });
+            })
+            .catch(error => {
+                console.error('Terjadi kesalahan saat memuat file GeoJSON:', error);
+            });
+    </script>
+    
+    </body>
+</html>
