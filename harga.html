@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Layanan Laundry Rindu</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .service-item:hover {
+            transform: translateY(-5px);
+            transition: transform 0.3s ease;
+        }
+
+        .fade-in {
+            animation: fadeIn 1s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body class="font-sans bg-cover bg-center text-gray-800" style="background-image: url('https://images.unsplash.com/photo-1522337660859-02fbefca4702?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwzNjUyOXwwfDF8c2VhcmNofDF8fGxhbmRyeXxlbnwwfHx8fDE2ODkwODg1Njk&ixlib=rb-1.2.1&q=80&w=1920'); margin: 0; padding: 0;">
+    <header class="bg-gradient-to-r from-blue-600 to-blue-800 text-white text-center py-12 shadow-lg">
+        <h1 class="text-5xl font-extrabold mb-2">Harga Laundry Rindu</h1>
+        <p class="text-lg italic">Solusi pakaian bersih, wangi, dan tepat waktu!</p>
+        <a href="#services" class="mt-6 inline-block px-8 py-3 bg-yellow-500 text-gray-800 font-semibold rounded-full hover:bg-yellow-400 transition">Pesan Sekarang</a>
+    </header>
+
+    <main class="max-w-7xl mx-auto px-6 py-12 bg-white bg-opacity-90 rounded-lg shadow-xl mt-8" id="services">
+        <section>
+            <h2 class="text-3xl font-semibold text-center mb-8">Harga</h2>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Service Item 1 -->
+                <div class="service-item flex flex-col items-center space-y-4 p-6 bg-blue-100 rounded-lg shadow-md hover:shadow-lg transition-all">
+                    <img src="cuci lipat.jpg" alt="Cuci Lipat" class="w-24 h-24 rounded-full">
+                    <div class="text-center">
+                        <h3 class="text-xl font-semibold">Cuci Lipat</h3>
+                        <p class="text-sm">Layanan mencuci pakaian dengan hasil bersih, lipatan rapi, siap digunakan.</p>
+                        <p class="text-lg font-bold text-blue-600 mt-4">Rp 5.000/kg</p>
+                    </div>
+                </div>
+                <!-- Service Item 2 -->
+                <div class="service-item flex flex-col items-center space-y-4 p-6 bg-blue-100 rounded-lg shadow-md hover:shadow-lg transition-all">
+                    <img src="cuci setrika.jpg" alt="Cuci Setrika" class="w-24 h-24 rounded-full">
+                    <div class="text-center">
+                        <h3 class="text-xl font-semibold">Cuci Setrika</h3>
+                        <p class="text-sm">Menawarkan hasil mencuci dan menyetrika pakaian dengan kualitas premium.</p>
+                        <p class="text-lg font-bold text-blue-600 mt-4">Rp 6.000/kg</p>
+                    </div>
+                </div>
+                <!-- Service Item 3 -->
+                <div class="service-item flex flex-col items-center space-y-4 p-6 bg-blue-100 rounded-lg shadow-md hover:shadow-lg transition-all">
+                    <img src="cuci kering.jpg" alt="Cuci Biasa" class="w-24 h-24 rounded-full">
+                    <div class="text-center">
+                        <h3 class="text-xl font-semibold">Cuci Biasa</h3>
+                        <p class="text-sm">Kami menyediakan layanan cepat untuk kebutuhan mendesak Anda.</p>
+                        <p class="text-lg font-bold text-blue-600 mt-4">Rp 6.000/kg</p>
+                    </div>
+                </div>
+                <!-- Service Item 4 -->
+                <div class="service-item flex flex-col items-center space-y-4 p-6 bg-blue-100 rounded-lg shadow-md hover:shadow-lg transition-all">
+                    <img src="antar jemput.jpg" alt="Antar Jemput" class="w-24 h-24 rounded-full">
+                    <div class="text-center">
+                        <h3 class="text-xl font-semibold">Antar Jemput</h3>
+                        <p class="text-sm">Nikmati kemudahan layanan antar jemput untuk cucian Anda.</p>
+                        <p class="text-lg font-bold text-blue-600 mt-4">Rp 5.000</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-blue-800 bg-opacity-90 text-white text-center py-6 mt-8">
+        <p class="text-sm">&copy; 2024 Laundry Rindu. Semua Hak Dilindungi.</p>
+    </footer>
+</body>
+</html>
