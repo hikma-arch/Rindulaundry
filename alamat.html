@@ -3,154 +3,206 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Alamat Kami</title>
+    <title>Alamat</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
     <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
     <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
     <style>
+        /* Styling for Leaflet popup */
         .leaflet-popup-content-wrapper {
-            background-color: #f0f4f8;
-            border-radius: 8px;
+            background: linear-gradient(135deg, #d4fc79, #0077b6);
+            border-radius: 12px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
         }
+
         .leaflet-popup-content {
+            font-family: 'Poppins', sans-serif;
             font-size: 14px;
             color: #333;
         }
+
         .leaflet-popup-tip {
-            background-color: #4C6BFF;
+            background-color: #96e6a1;
         }
+
         .popup-header {
             font-size: 16px;
             font-weight: bold;
-            color: #4C6BFF;
+            color: #0077b6;
+            margin-bottom: 5px;
         }
+
         .popup-rating {
             color: #FFD700;
         }
+
         .popup-address {
             font-size: 12px;
-            color: #666;
+            color: #555;
         }
-        .popup-contact {
+
+        .popup-hours, .popup-contact {
             font-size: 14px;
             color: #444;
+        }
+
+        /* Customize marker icon */
+        .leaflet-marker-icon {
+            width: 40px;
+            height: 40px;
+            background-color: #0077b6;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .leaflet-marker-icon::after {
+            content: '\1F4CD';
+            font-size: 18px;
+            color: white;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+        }
+
+        nav {
+            background: linear-gradient(90deg, #1e1ed1, #214dac);
+        }
+
+        a:hover {
+            color: #FFC107;
+        }
+
+        h2 {
+            color:#0077b6;
+        }
+
+        button {
+            color: #fff;
         }
     </style>
 </head>
 <body class="bg-blue-50">
 
-    <!-- Navigation Bar -->
-    <nav class="bg-gray-800 p-4">
-        <ul class="flex justify-center space-x-4">
-            <li><a href="index.html" class="text-white hover:text-gray-300">Home</a></li>
-            <li><a href="menu.html" class="text-white hover:text-gray-300">Menu</a></li>
-            <li><a href="sosmed.html" class="text-white hover:text-gray-300">Sosmed</a></li>
-            <li><a href="Alamat.html" class="text-white hover:text-gray-300">Alamat</a></li>
-            <li><a href="pesanan.html" class="text-white hover:text-gray-300">Pesanan</a></li>
-        </ul>
-    </nav>
+<nav class="bg-green-500 bg-opacity-90 rounded-lg shadow-lg px-6 py-4 fixed top-5 left-5 right-5 z-10 flex justify-between items-center">
+    <a href="#" class="text-yellow-400 font-bold text-lg">Alamat</a>
+    <div class="hidden md:flex space-x-6">
+        <a href="index.html" class="hover:text-yellow-400 transition">Home</a>
+        <a href="Harga.html" class="hover:text-yellow-400 transition">Harga</a>
+        <a href="kontak.html" class="hover:text-yellow-400 transition">Kontak</a>
+        <a href="alamat.html" class="hover:text-yellow-400 transition">Alamat</a>
+    </div>
+    <button id="hamburger-btn" class="md:hidden text-white text-xl">
+        <i class="fas fa-bars"></i>
+    </button>
+</nav>
 
-    <!-- Section Alamat -->
-    <section id="alamat" class="py-12">
-        <div class="container mx-auto px-6">
-            <h2 class="text-center text-3xl font-bold text-blue-600 mb-8">Alamat Kami</h2>
+<section id="alamat" class="bg-blue-50 py-12">
+    <div class="container mx-auto px-6">
+        <h2 class="text-center text-3xl font-bold text-green-600 mb-8">Alamat Kami</h2>
+
+        <div class="flex flex-col lg:flex-row gap-10 items-center justify-center">
+            <!-- Peta -->
+            <div id="map" class="w-full lg:w-2/3 h-80 bg-gray-200 rounded-lg shadow-md overflow-hidden"></div>
 
             <!-- Detail Alamat -->
-            <div class="text-center">
+            <div class="w-full lg:w-1/3 text-center lg:text-left">
                 <p class="text-gray-700 text-lg mb-4">
-                    📍 Jl. Rauf Rahman, Benteng, Kec. Benteng, Kab. Kepulauan Selayar, Sulawesi Selatan 92812
+                    📍 Jl. AP Pettarani, Bontobangung, Kec. Bontoharu, Sulawesi Selatan 
                 </p>
                 <p class="text-gray-600">
-                    Kami berada di lokasi yang mudah dijangkau, tepat di pusat kota. Jangan ragu untuk mengunjungi kami!
+                    Kami berada di lokasi yang mudah dijangkau. Jangan ragu untuk mengunjungi kami!
                 </p>
                 <p class="mt-4 text-gray-500">
                     <strong>Jam Operasional:</strong><br>
-                    Senin-Minggu: 16:00 - 23:00
+                    Senin-Minggu: 07:00 - 11:21
                 </p>
             </div>
-
-            <!-- Map -->
-            <div class="flex flex-col lg:flex-row gap-10 items-center justify-center mt-8">
-                <div id="map" class="w-full lg:w-2/3 h-96 bg-gray-200 rounded-lg shadow-lg overflow-hidden"></div>
-            </div>
         </div>
-    </section>
+    </div>
+</section>
 
-    <script>
-        document.addEventListener("DOMContentLoaded", function () {
-            // Initialize the map
-            var map = L.map('map', {
-                center: [-6.119249, 120.462837],
-                zoom: 18,
-                minZoom: 15,
-                maxZoom: 20
-            });
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        // Inisialisasi peta
+        var map = L.map('map', {
+            center: [-6.127764, 120.459229],
+            zoom: 18,
+            minZoom: 15,
+            maxZoom: 20
+        });
 
-            // Add tile layer
-            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-                attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-            }).addTo(map);
+        // Tambahkan lapisan dasar OpenStreetMap
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+        }).addTo(map);
 
-            // Marker data
-            const umkmData = {
-                name: "Coffee House",
-                rating: "5.0",
-                reviews: 45,
-                category: "Coffee House",
-                buka: "Senin-Minggu: 16:00 - 23:00",
-                alamat: "Jl Metro, Benteng Utara, Kec. Benteng, Sulawesi Selatan 92812",  
-                phone: "082199183777",
-                coords: [-6.119249, 120.462837],
-            };
+      
+        const umkmData = {
+        name: "Rindu Loundry",
+        rating: "5.0",
+        reviews: 100,
+        category: "Loundry",
+        buka: "Buka · Tutup pukul 7:00-11:21 🔻",
+        alamat:
+          "Jl. AP Pettarani, Bontobangung, Kec. Bontoharu, Sulawesi Selatan 92812",
+        phone: "085341661307",
+        coords: [-6.127764 , 120.459229],
+        imageUrl: "laudry.jpeg",
+      };
 
-            // Add marker
-            const marker = L.marker(umkmData.coords).addTo(map);
+      const marker = L.marker(umkmData.coords).addTo(map);
 
-            // Add tooltip and popup
-            marker.bindTooltip(umkmData.name, {
-                permanent: true,
-                direction: "top",
-                className: "marker-tooltip"
-            });
+      // Menambahkan tooltip permanen pada marker
+      marker.bindTooltip(umkmData.name, {
+        permanent: true,
+        direction: "top",
+        className: "marker-tooltip",
+      });
 
-            marker.bindPopup(`
+      marker.bindPopup(`
                 <div class="popup-container">
                     <div class="popup-header">${umkmData.name}</div>
-                    <div class="popup-rating">⭐ ${umkmData.rating} (${umkmData.reviews} reviews)</div>
-                    <img src="./CoffeeHouse.jpg" alt="Coffee House" style="height:200px; width:100%; margin:8px 0;" />
-                    <div class="popup-address">${umkmData.alamat}</div>
-                    <div class="popup-contact">📞 ${umkmData.phone}</div>
+                    <div class="popup-rating">⭐ ${umkmData.rating} <span>(${umkmData.reviews})</span></div>
+                    <div class="popup-category">${umkmData.category}</div>
+                    <img src="${umkmData.imageUrl}" alt="${umkmData.name}" class="popup-image" />
+                    <div class="popup-address"><i class="fas fa-map-marker-alt"></i> ${umkmData.alamat}</div>
+                    <div class="popup-hours"><i class="fas fa-clock"></i> <span>${umkmData.buka}</span></div>
+                    <div class="popup-contact"><i class="fas fa-phone-alt"></i> ${umkmData.phone}</div>
                 </div>
             `);
-
-            // Function to load GeoJSON
+            // Fungsi untuk memuat GeoJSON ke peta
             function loadGeoJSON(url, styleOptions) {
                 fetch(url)
                     .then(response => {
                         if (!response.ok) {
-                            throw new Error(`Failed to load ${url}: ${response.statusText}`);
+                            throw new Error(`Gagal memuat ${url}: ${response.status}`);
                         }
                         return response.json();
                     })
                     .then(geojsonData => {
                         L.geoJSON(geojsonData, {
                             style: styleOptions,
-                            onEachFeature: (feature, layer) => {
+                            onEachFeature: function (feature, layer) {
                                 if (feature.properties && feature.properties.nama) {
                                     layer.bindPopup(feature.properties.nama);
                                 }
-                            }
+                            },
                         }).addTo(map);
                     })
-                    .catch(error => console.error(`Error loading ${url}:`, error));
+                    .catch(error => console.error(`Kesalahan saat memuat ${url}: ${error}`));
             }
+
+            // Memuat GeoJSON dengan gaya default
             loadGeoJSON("./sekolah.geojson", {
                 color: "#f0f0f0",
                 weight: 1.5,
                 opacity: 0.8,
                 fillColor: "#45F450",
-                fillOpacity: 1
+                fillOpacity: 1,
             });
 
             loadGeoJSON("./mesjid benteng.geojson", {
@@ -158,14 +210,14 @@
                 weight: 1.5,
                 opacity: 0.8,
                 fillColor: "#45F450",
-                fillOpacity: 1
+                fillOpacity: 1,
             });
 
-            // Load GeoJSON files
+            // GeoJSON dengan gaya khusus
             const geojsonFiles = [
-                { url: "./BentengUtara.geojson", style: { fillColor: "red", fillOpacity: 0.2, color: "red" } },
-                { url: "./BentengPusat.geojson", style: { fillColor: "yellow", fillOpacity: 0.2, color: "yellow" } },
-                { url: "./BentengSelatan.geojson", style: { fillColor: "green", fillOpacity: 0.2, color: "green" } },
+                { url: "./BentengUtara.geojson", style: { color: "#f0f0f0", weight: 1.5, opacity: 0.8, fillColor: "red", fillOpacity: 0.2 } },
+                { url: "./BentengPusat.geojson", style: { color: "#f0f0f0", weight: 1.5, opacity: 0.8, fillColor: "yellow", fillOpacity: 0.2 } },
+                { url: "./BentengSelatan.geojson", style: { color: "#f0f0f0", weight: 1.5, opacity: 0.8, fillColor: "green", fillOpacity: 0.2 } },
                 { url: "./jalan.geojson", style: { color: "#333", weight: 3, opacity: 1 } }
             ];
 
