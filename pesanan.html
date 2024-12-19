@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Pemesanan</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gradient-to-br from-blue-100 to-blue-50 text-gray-800">
+    <section class="max-w-4xl mx-auto py-10">
+        <h1 class="text-center text-4xl font-bold text-blue-700 mb-8">Form Pemesanan</h1>
+        <form class="bg-white shadow-md rounded-lg p-6" id="orderForm">
+            <nav class="bg-gray-800 p-4">
+    <ul class="flex justify-center space-x-4">
+        <li><a href="index.html" class="text-white hover:text-gray-300">Home</a></li>
+        <li><a href="menu.html" class="text-white hover:text-gray-300">Menu</a></li>
+        <li><a href="sosmed.html" class="text-white hover:text-gray-300">Sosmed</a></li>
+        <li><a href="Alamat.html" class="text-white hover:text-gray-300">Alamat</a></li>
+        <li><a href="pesanan.html" class="text-white hover:text-gray-300">Pesanan</a></li>
+    </ul>
+</nav>
+
+            <!-- Nama Lengkap -->
+            <div class="mb-6">
+                <label for="name" class="block text-lg font-semibold text-gray-700 mb-2">Nama Lengkap</label>
+                <input type="text" id="name" name="name" class="w-full p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="Masukkan nama Anda" required>
+            </div>
+
+            <!-- Nomor Telepon -->
+            <div class="mb-6">
+                <label for="phone" class="block text-lg font-semibold text-gray-700 mb-2">Nomor Telepon</label>
+                <input type="tel" id="phone" name="phone" class="w-full p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="Masukkan nomor telepon Anda" required>
+            </div>
+
+            <!-- Pilihan Menu -->
+            <div class="mb-6">
+                <label for="menu" class="block text-lg font-semibold text-gray-700 mb-2">Pilih Menu</label>
+                <select id="menu" name="menu" class="w-full p-3 border bg-gray-50 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" required>
+                    <option value="" disabled selected>Pilih Menu</option>
+                    
+                    <!-- Makanan -->
+                    <optgroup label="Makanan">
+                         <option value="Nasi Goreng Special">Nasi Goreng Special - 28.000</option>
+                         <option value="Nasi Goreng Merah">Nasi Goreng Merah -28.000</option>
+                         <option value=" Mie Kering"> Mie Kering - 35.000</option>
+                         <option value="Indomie Goreng + Telur">Indomie Goreng +Telur - 20.000</option>
+                         <option value="Kentang">Chiken Burger - 20.000</option>
+                         <option value="Bakso">Bakso - 20.000</option>
+                         <option value="Burger Mini">Burger Mini - 7.000</option>
+                    </optgroup>
+
+                    <!-- Snack -->
+                    <optgroup label="Snack">
+                        <option value="Pisang Nungget">Pisang Nungget - 20.000</option>
+                        <option value="Roti Bakar">Roti Bakar - 20.000</option>
+                        <option value="Kentang">Kentang - 20.000</option>
+                        <option value="Pisang Goreng Biasa">Pisang Goreng Biasa - 20.000</option>
+                        <option value="Chiken Nugget">Chiken Nugget - 20.000</option>
+                        <option value="Otak-otak Goreng">Otak-otak Goreng - 20.000</option>
+                    </optgroup>
+
+                    <!-- MilkStore -->
+                    <optgroup label="MilkStore">
+                        <option value="Taro">Taro 20.000</option>
+                        <option value="Vanila Oreo">Vanila Oreo - 20.000</option>
+                        <option value="Greentea">Greentea - 20.000</option>
+                        <option value="Thaitea">Thaitea - 20.000</option>
+                        <option value="Tiramisu">Tiramisu - 20.000</option>
+                        <option value="Capucino">Capucino - 20.000</option>
+                        <option value="Vanila">Vanila - 20.000</option>
+                        <option value="Black Current">Black Current - 20.000</option>
+                        <option value="Red Velvet">Red Velvet - 20.000</option>
+                    </optgroup>
+
+                    <!-- Fresh Jus -->
+                    <optgroup label="Fresh Jus">
+                        <option value="Pepaya">Pepaya - 20.000</option>
+                        <option value="Alpukat">Alpukat - 20.000</option>
+                        <option value="Sirsak">Sirsak - 20.000</option>
+                        <option value="Semangka">Semangka - 20.000</option>
+                        <option value="Buah Naga">Buah Naga - 20.000</option>
+                        <option value="Melon">Melon - 20.000</option>
+                        <option value="Mangga">Mangga - 20.000</option>
+                        <option value="Appel">Appel - 20.000</option>
+                        <option value="Jeruk Nipis">Jeruk Nipis - 16.000</option>
+                        <option value="Orange Jus">Orange Jus - 20.000</option>
+                    </optgroup>
+
+                    <!-- Tea -->
+                    <optgroup label="Tea">
+                        <option value="Original Tea">Original Tea - 10.000</option>
+                        <option value="Milk Tea">Milk Tea - 10.000</option>
+                        <option value="Es Milk Tea">Es Milk Tea - 16.000</option>
+                        <option value="Es Teh">Es Teh - 10.000</option>
+                        <option value="Lemon Tea">Lemon Tea - 16.000</option>
+
+                    </optgroup>
+
+                    <!-- Coffee -->
+                    <optgroup label="Coffee">
+                         <option value="Clack Coffee">Clack Coffee - 10.000</option>
+                         <option value="Milk Coffee">Milk Coffee - 10.000</option>
+                         <option value="Estrajos Susu">Estrajos Susu - 10.000</option>
+                         <option value="Es Kopi">Es Kopi - 10.000</option>
+                    </optgroup>
+                </select>
+            </div>
+
+            <!-- Jumlah -->
+            <div class="mb-6">
+                <label for="quantity" class="block text-lg font-semibold text-gray-700 mb-2">Jumlah</label>
+                <input type="number" id="quantity" name="quantity" class="w-full p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" min="1" value="1" required>
+            </div>
+
+            <!-- Tombol Pesan -->
+            <div class="text-center">
+                <button type="submit" class="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-6 rounded-lg">Pesan Sekarang</button>
+            </div>
+        </form>
+
+        <!-- Pesan Sukses -->
+        <div id="successMessage" class="hidden mt-8 text-center text-green-600">
+            <h2 class="text-2xl font-bold">Pesanan Anda Berhasil!</h2>
+            <p>Terima kasih atas pesanan Anda. Kami akan segera menghubungi Anda.</p>
+        </div>
+    </section>
+
+    <script>
+        // Menangani pengiriman form
+        const form = document.getElementById('orderForm');
+        const successMessage = document.getElementById('successMessage');
+
+        form.addEventListener('submit', (event) => {
+            event.preventDefault();
+            
+            // Reset form
+            form.reset();
+            
+            // Tampilkan pesan sukses
+            successMessage.classList.remove('hidden');
+        });
+    </script>
+</body>
+</html>

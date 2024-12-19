@@ -3,72 +3,100 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- Link ke Tailwind CSS CDN -->   
+    <title>Menu</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <title>Menu Warung Surabaya</title>
 </head>
-<body class="bg-gray-50 font-sans text-gray-800">
-    <header class="bg-teal-600 p-6 text-center text-white shadow-md">
-        <h1 class="text-4xl font-bold">MENU</h1>
-        <a href="index.html" class="text-lg mt-2 block hover:underline">Kembali ke Halaman Utama</a>
-    </header>
-    
-    <main class="max-w-4xl mx-auto mt-10 px-4 sm:px-6 lg:px-8">
-        <!-- Menu Section -->
-        <div class="container">
-            <h2 class="text-center text-2xl font-bold mb-8">Menu Kami</h2>
-            <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-6 sm:gap-8">
-                <!-- Mie Ayam -->
-                <div class="grid-item relative">
-                    <img class="w-full h-40 sm:w-40 sm:h-40 object-cover mx-auto rounded-lg shadow-md" src="https://i.pinimg.com/originals/94/71/a5/9471a58456cb28adb2fc8a8be49b16f6.jpg" alt="Mie Ayam">
-                    <div class="overlay absolute bottom-0 left-0 right-0 bg-black bg-opacity-50 text-white text-center py-2">Mie Ayam</div>
-                </div>
-                <!-- Mie Pangsit -->
-                <div class="grid-item relative">
-                    <img class="w-full h-40 sm:w-40 sm:h-40 object-cover mx-auto rounded-lg shadow-md" src="https://i.pinimg.com/originals/0e/59/f8/0e59f8cbf755d24b617b4f7237ff5a31.jpg" alt="Mie Pangsit">
-                    <div class="overlay absolute bottom-0 left-0 right-0 bg-black bg-opacity-50 text-white text-center py-2">Mie Pangsit</div>
-                </div>
-                <!-- Mie Bakso -->
-                <div class="grid-item relative">
-                    <img class="w-full h-40 sm:w-40 sm:h-40 object-cover mx-auto rounded-lg shadow-md" src="https://i.pinimg.com/originals/fc/c8/7c/fcc87cfb2333a06ee59575c6bfdb7869.jpg" alt="Mie Bakso">
-                    <div class="overlay absolute bottom-0 left-0 right-0 bg-black bg-opacity-50 text-white text-center py-2">Mie Bakso</div>
-                </div>
-                <!-- Ayam Lalapan -->
-                <div class="grid-item relative">
-                    <img class="w-full h-40 sm:w-40 sm:h-40 object-cover mx-auto rounded-lg shadow-md" src="https://i.pinimg.com/736x/7b/5c/82/7b5c8224505b5052e8106d7dac8a45ad.jpg" alt="Ayam Lalapan">
-                    <div class="overlay absolute bottom-0 left-0 right-0 bg-black bg-opacity-50 text-white text-center py-2">Ayam Lalapan</div>
-                </div>
-                <!-- Nasi Goreng -->
-                <div class="grid-item relative">
-                    <img class="w-full h-40 sm:w-40 sm:h-40 object-cover mx-auto rounded-lg shadow-md" src="https://i.pinimg.com/736x/53/0c/f4/530cf43901a25376a19b6c918e3e0155.jpg" alt="Nasi Goreng">
-                    <div class="overlay absolute bottom-0 left-0 right-0 bg-black bg-opacity-50 text-white text-center py-2">Nasi Goreng</div>
-                </div>
-                <!-- Le Minerale -->
-                <div class="grid-item relative">
-                    <img class="w-full h-40 sm:w-40 sm:h-40 object-cover mx-auto rounded-lg shadow-md" src="https://i.pinimg.com/736x/d3/fb/9e/d3fb9ee5a077820e64a186308be679af.jpg" alt="Le Minerale">
-                    <div class="overlay absolute bottom-0 left-0 right-0 bg-black bg-opacity-50 text-white text-center py-2">Le Minerale</div>
-                </div>
-                <!-- Es Teh -->
-                <div class="grid-item relative">
-                    <img class="w-full h-40 sm:w-40 sm:h-40 object-cover mx-auto rounded-lg shadow-md" src="https://i.pinimg.com/564x/d7/78/4e/d7784e06a966a356f0da6599580c6c38.jpg" alt="Es Teh">
-                    <div class="overlay absolute bottom-0 left-0 right-0 bg-black bg-opacity-50 text-white text-center py-2">Es Teh</div>
-                </div>
-                <!-- Jeruk Peras -->
-                <div class="grid-item relative">
-                    <img class="w-full h-40 sm:w-40 sm:h-40 object-cover mx-auto rounded-lg shadow-md" src="https://i.pinimg.com/736x/1d/47/4f/1d474f0f03d1b37dc887ce9f56ded249.jpg" alt="Jeruk Peras">
-                    <div class="overlay absolute bottom-0 left-0 right-0 bg-black bg-opacity-50 text-white text-center py-2">Jeruk Peras</div>
-                </div>
-                <!-- Teh Kotak -->
-                <div class="grid-item relative">
-                    <img class="w-full h-40 sm:w-40 sm:h-40 object-cover mx-auto rounded-lg shadow-md" src="https://www.tehkotak.com/uploads/banner_tkj_vertical.jpg" alt="Teh Kotak">
-                    <div class="overlay absolute bottom-0 left-0 right-0 bg-black bg-opacity-50 text-white text-center py-2">Teh Kotak</div>
-                </div>
+<body class="bg-gradient-to-br from-blue-100 to-blue-50 text-gray-800">
+
+    <!-- Navbar -->
+    <nav class="bg-gray-800 p-4 mb-8">
+        <ul class="flex justify-center space-x-4">
+            <li><a href="index.html" class="text-white hover:text-gray-300">Home</a></li>
+            <li><a href="menu.html" class="text-white hover:text-gray-300">Menu</a></li>
+            <li><a href="sosmed.html" class="text-white hover:text-gray-300">Sosmed</a></li>
+            <li><a href="Alamat.html" class="text-white hover:text-gray-300">Alamat</a></li>
+            <li><a href="pesanan.html" class="text-white hover:text-gray-300">Pesanan</a></li>
+        </ul>
+    </nav>
+
+    <!-- Menu Section -->
+    <section class="menu max-w-5xl mx-auto py-10">
+        <h1 class="text-center text-4xl font-bold mb-8 text-blue-700">Menu</h1>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            
+            <!-- Makanan -->
+            <div class="menu-item bg-white rounded-lg shadow-md p-6 border-l-4 border-blue-500">
+                <h3 class="text-2xl font-semibold mb-4 border-b pb-2 text-blue-600">Makanan</h3>
+                <p class="mb-2">Nasi Goreng - <span class="font-semibold text-green-600">28.000</span></p>
+                <p class="mb-2">Mie Kering - <span class="font-semibold text-green-600">35.000</span></p>
+                <p class="mb-2">Indomie Goreng + Telur - <span class="font-semibold text-green-600">20.000</span></p>
+                <p class="mb-2">Indomie Kaldu + Telur Ceplok - <span class="font-semibold text-green-600">20.000</span></p>
+                <p class="mb-2">Chicken Burger - <span class="font-semibold text-green-600">20.000</span></p>
+                <p class="mb-2">Bakso - <span class="font-semibold text-green-600">20.000</span></p>
+                <p class="mb-2">Burger Mini - <span class="font-semibold text-green-600">7.000</span></p>
             </div>
+
+            <!-- Snack -->
+            <div class="menu-item bg-white rounded-lg shadow-md p-6 border-l-4 border-yellow-500">
+                <h3 class="text-2xl font-semibold mb-4 border-b pb-2 text-yellow-600">Snack</h3>
+                <p class="mb-2">Pisang Nugget - <span class="font-semibold text-green-600">20.000</span></p>
+                <p class="mb-2">Roti Bakar - <span class="font-semibold text-green-600">20.000</span></p>
+                <p class="mb-2">Kentang - <span class="font-semibold text-green-600">20.000</span></p>
+                <p class="mb-2">Pisang Goreng Biasa - <span class="font-semibold text-green-600">20.000</span></p>
+                <p class="mb-2">Chicken Nugget - <span class="font-semibold text-green-600">20.000</span></p>
+                <p class="mb-2">Otak-otak Goreng - <span class="font-semibold text-green-600">20.000</span></p>
+            </div>
+
+            <!-- MilkStore -->
+            <div class="menu-item bg-white rounded-lg shadow-md p-6 border-l-4 border-purple-500">
+                <h3 class="text-2xl font-semibold mb-4 border-b pb-2 text-purple-600">MilkStore</h3>
+                <p class="mb-2">Taro - <span class="font-semibold text-green-600">20.000</span></p>
+                <p class="mb-2">Vanila Oreo - <span class="font-semibold text-green-600">20.000</span></p>
+                <p class="mb-2">Greentea - <span class="font-semibold text-green-600">20.000</span></p>
+                <p class="mb-2">Thaitea - <span class="font-semibold text-green-600">20.000</span></p>
+                <p class="mb-2">Tiramisu - <span class="font-semibold text-green-600">20.000</span></p>
+                <p class="mb-2">Cappuccino - <span class="font-semibold text-green-600">20.000</span></p>
+                <p class="mb-2">Vanilla - <span class="font-semibold text-green-600">20.000</span></p>
+                <p class="mb-2">Black Currant - <span class="font-semibold text-green-600">20.000</span></p>
+                <p class="mb-2">Red Velvet - <span class="font-semibold text-green-600">20.000</span></p>
+            </div>
+
+            <!-- Fresh Jus -->
+            <div class="menu-item bg-white rounded-lg shadow-md p-6 border-l-4 border-purple-500">
+                <h3 class="text-2xl font-semibold mb-4 border-b pb-2 text-purple-600">MilkStore</h3>
+                <p class="mb-2">Pepaya - <span class="font-semibold text-green-600">20.000</span></p>
+                <p class="mb-2">Alpukat - <span class="font-semibold text-green-600">20.000</span></p>
+                <p class="mb-2">Sirsak - <span class="font-semibold text-green-600">20.000</span></p>
+                <p class="mb-2">Semangka - <span class="font-semibold text-green-600">20.000</span></p>
+                <p class="mb-2">Buah Naga - <span class="font-semibold text-green-600">20.000</span></p>
+                <p class="mb-2">Melon - <span class="font-semibold text-green-600">20.000</span></p>
+                <p class="mb-2">Mangga - <span class="font-semibold text-green-600">20.000</span></p>
+                <p class="mb-2">Appel - <span class="font-semibold text-green-600">20.000</span></p>
+                <p class="mb-2">Jeruk Nipis - <span class="font-semibold text-green-600">16.000</span></p>
+                <p class="mb-2">Markisa - <span class="font-semibold text-green-600">20.000</span></p>
+                <p class="mb-2">Orange jus - <span class="font-semibold text-green-600">20.000</span></p>
+            </div>
+
+            <!-- Tea -->
+            <div class="menu-item bg-white rounded-lg shadow-md p-6 border-l-4 border-purple-500">
+                <h3 class="text-2xl font-semibold mb-4 border-b pb-2 text-purple-600">MilkStore</h3>
+                <p class="mb-2">Original tea  - <span class="font-semibold text-green-600">10.000</span></p>
+                <p class="mb-2">Milk tea (Teh Susu) - <span class="font-semibold text-green-600">10.000</span></p>
+                <p class="mb-2">Es milk tea (Es Teh Susu) - <span class="font-semibold text-green-600">16.000</span></p>
+                <p class="mb-2">Es Teh - <span class="font-semibold text-green-600">10.000</span></p>
+                <p class="mb-2">Lemon Tea - <span class="font-semibold text-green-600">16.000</span></p>
+            </div>
+
+            <!-- Coffee -->
+            <div class="menu-item bg-white rounded-lg shadow-md p-6 border-l-4 border-purple-500">
+                <h3 class="text-2xl font-semibold mb-4 border-b pb-2 text-purple-600">MilkStore</h3>
+                <p class="mb-2">Black caffee (Kopi Hitam)  - <span class="font-semibold text-green-600">10.000</span></p>
+                <p class="mb-2">Milk caffee (Kopi Susu) - <span class="font-semibold text-green-600">10.000</span></p>
+                <p class="mb-2">Estrajos Susu - <span class="font-semibold text-green-600">10.000</span></p>
+                <p class="mb-2">Es Kopi - <span class="font-semibold text-green-600">10.000</span></p>
+            </div>
+            
         </div>
-    </main>
-    
-    <footer class="bg-teal-600 text-white text-center py-4 mt-10">
-        <p>&copy; 2024 Warung Surabaya. Semua hak dilindungi.</p>
-    </footer>
+    </section>
 </body>
 </html>
