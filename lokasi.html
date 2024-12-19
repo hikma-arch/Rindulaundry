@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alamat Kami</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <style>
+        /* Styling for Leaflet popup */
+        .leaflet-popup-content-wrapper {
+            background-color: #f0f4f8;
+            border-radius: 8px;
+        }
+
+        .leaflet-popup-content {
+            font-size: 14px;
+            color: #333;
+        }
+
+        .leaflet-popup-tip {
+            background-color: #4C6BFF;
+        }
+
+        .popup-header {
+            font-size: 16px;
+            font-weight: bold;
+            color: #4C6BFF;
+        }
+
+        .popup-rating {
+            color: #FFD700;
+        }
+
+        .popup-address {
+            font-size: 12px;
+            color: #666;
+        }
+
+        .popup-hours, .popup-contact {
+            font-size: 14px;
+            color: #444;
+        }
+
+        /* Customize marker icon */
+        .leaflet-marker-icon {
+            width: 40px;
+            height: 40px;
+            background-color: #4C6BFF;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .leaflet-marker-icon::after {
+            content: '📍';
+            font-size: 18px;
+            color: white;
+        }
+    </style>
+</head>
+<body class="bg-blue-50">
+
+    <section id="alamat" class="py-12">
+        <div class="container mx-auto px-6">
+            <h2 class="text-center text-3xl font-bold text-blue-600 mb-8">Alamat Kami</h2>
+
+            <div class="flex flex-col lg:flex-row gap-10 items-center justify-center">
+                <!-- Peta -->
+                <div id="map" class="w-full lg:w-2/3 h-96 bg-gray-200 rounded-lg shadow-lg overflow-hidden">
+                    <!-- Peta dengan Leaflet -->
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            // Inisialisasi peta
+            var map = L.map('map', {
+                center: [-6.136358, 120.461128],
+                zoom: 18,
+                minZoom: 15,
+                maxZoom: 20
+            });
+
+            // Tambahkan lapisan dasar OpenStreetMap
+            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+            }).addTo(map);
+
+            // Data UMKM
+            const umkmData = {
+                name: "Warung Surabaya",
+                rating: "5.0",
+                reviews: 45,
+                category: "Warung Makan",
+                buka: "Buka · Tutup pukul 20:30 🔻",
+                alamat: " Jl. Abd. Kadir Kasim, Bontobangun, Kec. Bontoharu, Kab. Kepulauan Selayar, Sulawesi Selatan",
+                phone: "081242554766",
+                coords: [-6.136358, 120.461128],
+            };
+
+            // Tambahkan marker ke peta
+            const marker = L.marker(umkmData.coords).addTo(map);
+
+            // Tooltip permanen
+            marker.bindTooltip(umkmData.name, {
+                permanent: true,
+                direction: "top",
+                className: "marker-tooltip",
+            });
+
+            // Popup dengan informasi UMKM
+            marker.bindPopup(`
+                <div class="popup-container">
+                    <div class="popup-header">${umkmData.name}</div>
+                    <div class="popup-rating">⭐ ${umkmData.rating} <span>(${umkmData.reviews})</span></div>
+                    <div class="popup-category">${umkmData.category}</div>
+                    <img src="./kopitentangkita.jpg" style="height:200px; width:100%"/>
+                    <div class="popup-address"><i class="fas fa-map-marker-alt"></i> ${umkmData.alamat}</div>
+                    <div class="popup-contact"><i class="fas fa-phone-alt"></i> ${umkmData.phone}</div>
+                </div>
+            `);
+
+            // Fungsi untuk memuat GeoJSON ke peta
+            function loadGeoJSON(url, styleOptions) {
+                fetch(url)
+                    .then(response => {
+                        if (!response.ok) {
+                            throw new Error(`Gagal memuat ${url}: ${response.status}`);
+                        }
+                        return response.json();
+                    })
+                    .then(geojsonData => {
+                        L.geoJSON(geojsonData, {
+                            style: styleOptions,
+                            onEachFeature: function (feature, layer) {
+                                if (feature.properties && feature.properties.nama) {
+                                    layer.bindPopup(`${feature.properties.nama}`);
+                                }
+                            },
+                        }).addTo(map);
+                    })
+                    .catch(error => console.error(`Kesalahan saat memuat ${url}: ${error}`));
+            }
+
+            // Memuat GeoJSON dengan gaya default
+            loadGeoJSON("./sekolah.geojson", {
+                color: "#f0f0f0",
+                weight: 1.5,
+                opacity: 0.8,
+                fillColor: "#45F450",
+                fillOpacity: 1,
+            });
+
+            loadGeoJSON("./mesjid.geojson", {
+                color: "#f0f0f0",
+                weight: 1.5,
+                opacity: 0.8,
+                fillColor: "#45F450",
+                fillOpacity: 1,
+            });
+
+            // GeoJSON dengan gaya khusus
+            const geojsonFiles = [
+                { url: "./BentengUtara.geojson", style: { color: "#f0f0f0", weight: 1.5, opacity: 0.8, fillColor: "red", fillOpacity: 0.2 } },
+                { url: "./BentengPusat.geojson", style: { color: "#f0f0f0", weight: 1.5, opacity: 0.8, fillColor: "yellow", fillOpacity: 0.2 } },
+                { url: "./BentengSelatan.geojson", style: { color: "#f0f0f0", weight: 1.5, opacity: 0.8, fillColor: "green", fillOpacity: 0.2 } },
+                { url: "./jalanBentengAnjay.geojson", style: { color: "#333", weight: 3, opacity: 1 } }
+            ];
+
+            geojsonFiles.forEach(file => {
+                loadGeoJSON(file.url, file.style);
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,26 @@
+.container{
+    max-width: 1200px;
+    width: 90%;
+    margin: auto;
+}
+.row{
+    display: flex;
+    flex-wrap: wrap;
+}
+@for $i from 1 through 12{
+    .col#{$i}{
+        width: (100%/(12/$i))-3%;
+        margin: 1.5%;
+    }
+}
+//NAv
+.nav-container{
+    max-width: 1200px;
+    width: 90%;
+    margin: 0 auto;
+}
+.nav{
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 1.5%;
+}

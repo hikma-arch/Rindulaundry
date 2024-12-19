@@ -1,0 +1,85 @@
+h1{
+    background-color: rgb(179, 158, 161);
+    font-size: 50px;
+    font-family: system-ui;
+    font-style: small;
+    text-align: center;
+}
+h2{
+    background-color:rgb(173, 154, 154);
+    font-family: Cambria;
+    font-style: oblique;
+    text-align: center;  
+}
+ul{
+    background-color: rgb(235, 197, 197);
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-style: italic;
+    text-align: center;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f7dfdfd3;
+    color: #1b1919;
+  }
+  
+  
+  main {
+    padding: 20px;
+  }
+  
+  #menu-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+  
+  .menu-item {
+    border: 1px solid s#030303;
+    border-radius: 8px;
+    padding: 10px;
+    width: 100px;
+    text-align: center;
+    background-color: rgb(197, 185, 185);
+  }
+  
+  .menu-item button {
+    margin-top: 10px;
+    padding: 5px;
+    background-color: #a1a19b8e;
+    color: rgb(15, 15, 15);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .menu-item button:hover {
+    background-color: #292525;
+  }
+  
+  #order-container {
+    margin-top: 10px;
+  }
+  
+  #order-list {
+    list-style: none;
+    padding: 0;
+  }
+  
+  #submit-order {
+    margin-top: 10px;
+    padding: 10px;
+    background-color: #a2b0b8b4;
+    color: rgb(17, 17, 17);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  #submit-order:hover {
+    background-color: #879196;
+  }
+  

@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Order Pesanan</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 text-gray-900">
+  <header class="bg-gradient-to-r from-blue-500 to-blue-700 text-white p-6 shadow-lg">
+    <h1 class="text-4xl font-extrabold text-center tracking-wider">ORDERAN</h1>
+    <a href="index.html" class="block text-center text-sm mt-2 underline hover:text-blue-300">Kembali ke Beranda</a>
+  </header>
+
+  <!-- Menu Section -->
+  <div class="container mx-auto p-8">
+    <h2 class="text-center text-2xl font-bold mb-8">Menu Kami</h2>
+    <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-8">
+      <!-- Mie Ayam -->
+      <div class="relative group">
+        <img class="w-40 h-40 object-cover mx-auto rounded-lg shadow-md transition duration-300 transform group-hover:scale-105" src="https://i.pinimg.com/originals/94/71/a5/9471a58456cb28adb2fc8a8be49b16f6.jpg" alt="Mie Ayam">
+        <div class="absolute bottom-0 left-0 right-0 bg-black bg-opacity-50 text-white text-center py-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">Mie Ayam</div>
+        <button class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-blue-600 text-white px-4 py-2 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300" onclick="addToOrder('Mie Ayam', 20000)">Tambah</button>
+      </div>
+
+      <!-- Mie Pangsit -->
+      <div class="relative group">
+        <img class="w-40 h-40 object-cover mx-auto rounded-lg shadow-md transition duration-300 transform group-hover:scale-105" src="https://i.pinimg.com/originals/0e/59/f8/0e59f8cbf755d24b617b4f7237ff5a31.jpg" alt="Mie Pangsit">
+        <div class="absolute bottom-0 left-0 right-0 bg-black bg-opacity-50 text-white text-center py-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">Mie Pangsit</div>
+        <button class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-blue-600 text-white px-4 py-2 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300" onclick="addToOrder('Mie Pangsit', 18000)">Tambah</button>
+      </div>
+
+      <!-- Mie Bakso -->
+      <div class="relative group">
+        <img class="w-40 h-40 object-cover mx-auto rounded-lg shadow-md transition duration-300 transform group-hover:scale-105" src="https://i.pinimg.com/originals/fc/c8/7c/fcc87cfb2333a06ee59575c6bfdb7869.jpg" alt="Mie Bakso">
+        <div class="absolute bottom-0 left-0 right-0 bg-black bg-opacity-50 text-white text-center py-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">Mie Bakso</div>
+        <button class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-blue-600 text-white px-4 py-2 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300" onclick="addToOrder('Mie Bakso', 25000)">Tambah</button>
+      </div>
+
+      <!-- Ayam Lalapan -->
+      <div class="relative group">
+        <img class="w-40 h-40 object-cover mx-auto rounded-lg shadow-md transition duration-300 transform group-hover:scale-105" src="https://i.pinimg.com/736x/7b/5c/82/7b5c8224505b5052e8106d7dac8a45ad.jpg" alt="Ayam Lalapan">
+        <div class="absolute bottom-0 left-0 right-0 bg-black bg-opacity-50 text-white text-center py-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">Ayam Lalapan</div>
+        <button class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-blue-600 text-white px-4 py-2 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300" onclick="addToOrder('Ayam Lalapan', 30000)">Tambah</button>
+      </div>
+
+      <!-- Nasi Goreng -->
+      <div class="relative group">
+        <img class="w-40 h-40 object-cover mx-auto rounded-lg shadow-md transition duration-300 transform group-hover:scale-105" src="https://i.pinimg.com/736x/53/0c/f4/530cf43901a25376a19b6c918e3e0155.jpg" alt="Nasi Goreng">
+        <div class="absolute bottom-0 left-0 right-0 bg-black bg-opacity-50 text-white text-center py-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">Nasi Goreng</div>
+        <button class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-blue-600 text-white px-4 py-2 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300" onclick="addToOrder('Nasi Goreng', 25000)">Tambah</button>
+      </div>
+
+      <!-- Le Minerale -->
+      <div class="relative group">
+        <img class="w-40 h-40 object-cover mx-auto rounded-lg shadow-md transition duration-300 transform group-hover:scale-105" src="https://i.pinimg.com/736x/d3/fb/9e/d3fb9ee5a077820e64a186308be679af.jpg" alt="Le Minerale">
+        <div class="absolute bottom-0 left-0 right-0 bg-black bg-opacity-50 text-white text-center py-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">Le Minerale</div>
+        <button class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-blue-600 text-white px-4 py-2 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300" onclick="addToOrder('Le Minerale', 5000)">Tambah</button>
+      </div>
+
+      <!-- Es Teh -->
+      <div class="relative group">
+        <img class="w-40 h-40 object-cover mx-auto rounded-lg shadow-md transition duration-300 transform group-hover:scale-105" src="https://i.pinimg.com/564x/d7/78/4e/d7784e06a966a356f0da6599580c6c38.jpg" alt="Es Teh">
+        <div class="absolute bottom-0 left-0 right-0 bg-black bg-opacity-50 text-white text-center py-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">Es Teh</div>
+        <button class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-blue-600 text-white px-4 py-2 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300" onclick="addToOrder('Es Teh', 7000)">Tambah</button>
+      </div>
+
+      <!-- Jeruk Peras -->
+      <div class="relative group">
+        <img class="w-40 h-40 object-cover mx-auto rounded-lg shadow-md transition duration-300 transform group-hover:scale-105" src="https://i.pinimg.com/736x/1d/47/4f/1d474f0f03d1b37dc887ce9f56ded249.jpg" alt="Jeruk Peras">
+        <div class="absolute bottom-0 left-0 right-0 bg-black bg-opacity-50 text-white text-center py-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">Jeruk Peras</div>
+        <button class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-blue-600 text-white px-4 py-2 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300" onclick="addToOrder('Jeruk Peras', 10000)">Tambah</button>
+      </div>
+
+      <!-- Teh Kotak -->
+      <div class="relative group">
+        <img class="w-40 h-40 object-cover mx-auto rounded-lg shadow-md transition duration-300 transform group-hover:scale-105" src="https://www.tehkotak.com/uploads/banner_tkj_vertical.jpg" alt="Teh Kotak">
+        <div class="absolute bottom-0 left-0 right-0 bg-black bg-opacity-50 text-white text-center py-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">Teh Kotak</div>
+        <button class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-blue-600 text-white px-4 py-2 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300" onclick="addToOrder('Teh Kotak', 6000)">Tambah</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Pesanan Anda Section -->
+  <h2 class="text-3xl font-bold mt-10 mb-6 text-gray-800 border-b-2 border-blue-500 pb-2">Pesanan Anda</h2>
+  <div id="order-container" class="bg-gray-50 p-6 rounded-lg shadow">
+    <ul id="order-list" class="list-disc pl-5 mb-4 space-y-2">
+      <!-- Pesanan akan muncul di sini -->
+    </ul>
+    <p class="text-xl font-bold">Total: Rp <span id="total-price">0</span></p>
+    <button id="submit-order" class="mt-6 w-full bg-gradient-to-r from-blue-600 to-blue-700 text-white py-3 rounded-lg text-lg font-semibold hover:from-blue-700 hover:to-blue-800">
+      Pesan Sekarang
+    </button>
+  </div>
+
+  <footer class="bg-gray-800 text-white text-center p-4 mt-10">
+    <p class="text-sm">&copy; 2024 Restoran Kami. Semua Hak Dilindungi.</p>
+  </footer>
+
+  <script>
+    let totalPrice = 0;
+
+    function addToOrder(item, price) {
+      const orderList = document.getElementById('order-list');
+      const listItem = document.createElement('li');
+      listItem.classList.add('flex', 'justify-between', 'items-center', 'border-b', 'py-2');
+      listItem.innerHTML = `
+        <span>${item}</span>
+        <span>Rp ${price.toLocaleString()}</span>
+        <button class="bg-red-500 text-white px-2 py-1 text-sm rounded hover:bg-red-600 ml-2" onclick="removeFromOrder(this, ${price})">Hapus</button>
+      `;
+      orderList.appendChild(listItem);
+
+      totalPrice += price;
+      document.getElementById('total-price').textContent = totalPrice.toLocaleString();
+    }
+
+    function removeFromOrder(button, price) {
+      const listItem = button.closest('li');
+      listItem.remove();
+
+      totalPrice -= price;
+      document.getElementById('total-price').textContent = totalPrice.toLocaleString();
+    }
+  </script>
+</body>
+</html>
